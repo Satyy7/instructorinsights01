@@ -29,7 +29,6 @@ def search_and_print_header():
 
 
 def extract_professor_data(content):
-    # Try to capture everything between window.__RELAY_STORE__ = and the closing </script> tag
     match = re.search(
         r'window\.__RELAY_STORE__ = (.*?);\s*</script>', content, re.DOTALL)
     if not match:
@@ -40,7 +39,6 @@ def extract_professor_data(content):
     try:
         data = json.loads(data_str)
     except json.JSONDecodeError as e:
-        # Trim the data string at the position where the parsing failed and retry
         trimmed_data_str = data_str[:e.pos]
         try:
             data = json.loads(trimmed_data_str)
