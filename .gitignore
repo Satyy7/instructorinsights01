@@ -1,2 +1,4 @@
 showmore.py
 test.py
+venv/
+__pycache__/
