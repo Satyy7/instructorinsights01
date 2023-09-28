@@ -38,18 +38,24 @@ def extract_professor_data(soup):
     
     professors = []
     for element in professor_elements:
-        name_element = element.find(class_="CardName__StyledCardName-sc-1gyrgim-0")
-        rating_element = element.find(class_="CardNumRating__CardNumRatingNumber-sc-17t4b9u-2")
-        department_element = element.find(class_="CardSchool__Department-sc-19lmz2k-0")
+        name = element.find(class_="CardName__StyledCardName-sc-1gyrgim-0")
+        rating = element.find(class_="CardNumRating__CardNumRatingNumber-sc-17t4b9u-2")
+        ratings_count = element.find(class_ = "CardNumRating__CardNumRatingCount-sc-17t4b9u-3")
+        department = element.find(class_="CardSchool__Department-sc-19lmz2k-0")
+        would_take_again = element.find(class_="CardFeedback__CardFeedbackNumber-lq6nix-2")
 
-        if name_element and rating_element and department_element:
-            name = name_element.get_text(strip=True)
-            rating = rating_element.get_text(strip=True)
-            department = department_element.get_text(strip=True)
-            print(f"Name: {name}, Rating: {rating}, Department: {department}")
+        if name and rating and department and would_take_again and ratings_count:
+            name = name.get_text(strip=True)
+            rating = rating.get_text(strip=True)
+            ratings_count = ratings_count.get_text(strip=True)
+            department = department.get_text(strip=True)
+            would_take_again = would_take_again.get_text(strip=True)
+            print(f"Name: {name}, Rating: {rating} Count: {ratings_count} , Department: {department}, Would take again %: {would_take_again}")
 
-            professors.append((name, rating, department))
-            
+            professors.append((name, rating, ratings_count, department, would_take_again))
+    
+
+    ##!!!!! LOAD INTO CSV THEN MIGRATE INTO DB
     return professors
 
 
@@ -79,28 +85,31 @@ def scrape_professors():
     driver = webdriver.Chrome(options=options)
     url = f"{BASE_URL}/search/professors/4002?q=*"
     driver.get(url)
-    wait = WebDriverWait(driver, 3)
+    wait = WebDriverWait(driver, 2)
 
     try:
+        ## Close the cookie modal on start
         close_button = wait.until(EC.element_to_be_clickable(
             (By.CSS_SELECTOR, ".CCPAModal__StyledCloseButton-sc-10x9kq-2")))
         close_button.click()
-        print("Button closed")
+        print("Cookie modal closed")
     except Exception as e:
         print(
             f"Could not find Close button, or another error occurred: {str(e)}")
     i = 0
     while i < 5:
         try:
+            ## Press the show more button to load more professors
             show_more_button = wait.until(EC.visibility_of_element_located(
                 (By.XPATH, "//button[text()='Show More']")))
             show_more_button.click()
-            print("Clicked Show More Button")
-            
+            print("Finding more professors...")
+
             i += 1
         except Exception as e:
             print("No more 'Show More' buttons, or another error occurred.")
             break
+
     soup = BeautifulSoup(driver.page_source, "html.parser")
     extract_professor_data(soup)
     driver.quit()
