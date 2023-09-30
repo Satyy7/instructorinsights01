@@ -6,6 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
 from bs4 import BeautifulSoup
+import csv
+
+
 
 BASE_URL = "https://www.ratemyprofessors.com"
 
@@ -33,6 +36,14 @@ def search_and_print_header():
         print("Header information not found.")
 
 
+def save_to_csv(professors):
+    with open('professors.csv', mode = 'w', newline = '') as file:
+        writer = csv.writer(file)
+
+        writer.writerow(['Name','Rating','Rating Count','Department','Would Take Again %'])
+        writer.writerows(professors)
+        print("Saved to CSV")
+
 def extract_professor_data(soup):
     professor_elements = soup.find_all(class_="TeacherCard__StyledTeacherCard-syjs0d-0")
     
@@ -50,13 +61,12 @@ def extract_professor_data(soup):
             ratings_count = ratings_count.get_text(strip=True)
             department = department.get_text(strip=True)
             would_take_again = would_take_again.get_text(strip=True)
-            print(f"Name: {name}, Rating: {rating} Count: {ratings_count} , Department: {department}, Would take again %: {would_take_again}")
-
+            # print(f"Name: {name}, Rating: {rating} Count: {ratings_count} , Department: {department}, Would take again %: {would_take_again}")
             professors.append((name, rating, ratings_count, department, would_take_again))
-    
+    save_to_csv(professors)
 
-    ##!!!!! LOAD INTO CSV THEN MIGRATE INTO DB
-    return professors
+
+
 
 
 def scrape_professors():
@@ -86,7 +96,6 @@ def scrape_professors():
     url = f"{BASE_URL}/search/professors/4002?q=*"
     driver.get(url)
     wait = WebDriverWait(driver, 2)
-
     try:
         ## Close the cookie modal on start
         close_button = wait.until(EC.element_to_be_clickable(
@@ -97,15 +106,22 @@ def scrape_professors():
         print(
             f"Could not find Close button, or another error occurred: {str(e)}")
     i = 0
-    while i < 5:
+    sleep_time = 1
+    while True:
         try:
             ## Press the show more button to load more professors
             show_more_button = wait.until(EC.visibility_of_element_located(
                 (By.XPATH, "//button[text()='Show More']")))
             show_more_button.click()
-            print("Finding more professors...")
-
             i += 1
+            print(f'Pressed {i} times')
+            if i % 100 == 0:
+                sleep_time += 1
+            # if i % 250 == 0:
+            #     sleep_time += 1 
+            time.sleep(sleep_time)
+
+            
         except Exception as e:
             print("No more 'Show More' buttons, or another error occurred.")
             break
