@@ -8,7 +8,7 @@ conn = psycopg2.connect(dbname=config('DB_NAME'), user=config('DB_USER'), passwo
 
 cur = conn.cursor()
 
-with open('./professors.csv', mode='r') as file:
+with open('./csv/cleaned_data.csv', mode='r') as file:
     reader = csv.DictReader(file)
     
     for row in reader:
