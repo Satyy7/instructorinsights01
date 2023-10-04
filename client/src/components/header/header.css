@@ -1,0 +1,26 @@
+.header {
+    border: 3px solid black;
+    display: flex;
+    justify-content: space-between;
+    font-size: larger;
+    align-items: center;
+}
+body.dark-mode .header {
+    border: 3px solid darkgrey;
+}
+
+.night-button {
+    background-color: rgb(4, 39, 16);
+    color: white;
+    border: 3px solid rgb(236, 213, 84);
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin-right: 20px;
+    font-weight: bolder;
+    font-family: fantasy;
+    
+}
+body.dark-mode .night-button {
+    background-color: rgba(54, 184, 179, 0.53);
+}
