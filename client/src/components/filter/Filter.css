@@ -1,9 +1,9 @@
 .filter-container {
     display: flex;
-    /* border: 5px solid rgb(84, 64, 64); */
+    border: 5px solid rgb(133, 60, 60);
     width: 90%;
     margin: auto;
-    height: 20vh;
+    height: 15vh;
     align-items: flex-start;
     justify-content: space-around;
     text-align: center;
@@ -26,20 +26,48 @@
     border: 2px solid rgb(99, 79, 5);
     border-radius: 5px;
     height: 30px;
+    font-family: monospace;
+    background-color: whitesmoke;
 }
 .input:hover {
     border: 2px solid green;
 }
+
+.input::placeholder {
+    color: white(139, 18, 18);
+}
+
+body.dark-mode .input {
+    background-color: rgba(1, 1, 1, 0.614);
+    color: white;
+}
+body.dark-mode .input::placeholder {
+    color: rgb(174, 173, 173);
+}
+
 .filter-button {
     box-sizing: border-box;
     border: 3px solid darkgrey;
     align-self: flex-end;
-    background-color: rgba(0, 150, 140, 0.546);
-    color: white;
+    color: rgb(19, 129, 0);
     border-radius: 15px;
     font-size: medium;
     height: 30px;
     width: 125px;
     font-family: fantasy;
     font-weight: 600;
+}
+.filter-button:hover {
+    background-color: rgb(19, 129, 0);
+    color: white;
+    cursor: pointer;
+    /* scale: (1.1); */
+}
+body.dark-mode .filter-button {
+    background-color: rgba(1, 1, 1, 0.614);
+    color: white;
+}
+body.dark-mode .filter-button:hover {
+    background-color: rgb(19, 129, 0);
+    color: white;
 }

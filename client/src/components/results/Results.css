@@ -16,5 +16,6 @@
     align-items: flex-start;
     height: 100%;
     border: 2px solid rgb(255, 139, 129);
+    overflow: scroll;
     flex-wrap: wrap;
 }
