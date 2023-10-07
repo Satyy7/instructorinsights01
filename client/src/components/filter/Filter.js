@@ -44,7 +44,7 @@ function Filter() {
             <input
               className="input"
               type="text"
-              placeholder="EX: 5, >3.5, 2, etc..."
+              placeholder="Enter a number 1-5"
               onChange={(e) => setRating(e.target.value)}
             />
           </form>
@@ -55,7 +55,7 @@ function Filter() {
             <input
               className="input"
               type="text"
-              placeholder="EX: >100, =10, >=90, etc..."
+              placeholder="Enter a number"
               onChange={(e) => setRatingCount(e.target.value)}
             />
           </form>
@@ -66,7 +66,7 @@ function Filter() {
             <input
               className="input"
               type="text"
-              placeholder="Ex: >90, <=10, etc..."
+              placeholder="Enter a number"
               onChange={(e) => setWta(e.target.value)}
             />
           </form>
