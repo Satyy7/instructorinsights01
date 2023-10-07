@@ -1,4 +1,4 @@
-import scraper
+import backend.scraper as scraper
 
 if __name__ == "__main__":
     scraper.search_and_print_header()

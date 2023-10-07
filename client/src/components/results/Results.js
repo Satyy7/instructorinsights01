@@ -1,23 +1,22 @@
-import React from 'react'
-import './Results.css'
-function Results() {
+import React from "react";
+import "./Results.css";
+function Results({ data }) {
   return (
-    <div className='results-container'>
-      <div className='results-header'>
-      </div>
-      <div className='results-body'>
+    <>
+      <div className="results-container"></div>
+      <div className="results-header">Results</div>
+      <div className="results-body">
         <div>
-          <h4>Result:</h4>
-          
-          </div>
-        <h2>results</h2>
-        <h2>Results</h2>
-        <h2>results</h2>
-        <h2>Results</h2>
-        <h2>results</h2>
-    </div>
-    </div>
-  )
+          {data.map((prof, index) => (
+            <div key={index}>
+              <h2>{prof.name}</h2>
+              <p>Rating: {prof.rating}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Results;
