@@ -11,9 +11,7 @@ function Header() {
   return (
     <div className="header">
       <h4>RateMyProfQuery</h4>
-      <div >
         <button className="night-button" onClick={() => setDarkMode(!darkMode)}>{darkMode ? 'Light' : 'Dark'}</button>
-      </div>
     </div>
   );
 }

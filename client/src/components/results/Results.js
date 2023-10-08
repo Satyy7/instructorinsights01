@@ -8,9 +8,11 @@ function Results({ data }) {
       <div className="results-body">
         <div>
           {data.map((prof, index) => (
-            <div key={index}>
-              <h2>{prof.name}</h2>
-              <p>Rating: {prof.rating}</p>
+            <div className="prof" key={index}>
+              <div className="prof-name">
+                <h2>{prof.name}</h2>
+                </div>
+              <p className="rating">Rating: {prof.rating}</p>
             </div>
           ))}
         </div>

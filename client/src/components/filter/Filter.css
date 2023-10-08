@@ -1,6 +1,6 @@
 .filter-container {
     display: flex;
-    border: 5px solid rgb(133, 60, 60);
+    /* border: 5px solid rgb(133, 60, 60); */
     width: 90%;
     margin: auto;
     height: 15vh;
