@@ -13,10 +13,10 @@ function Filter() {
 
   const handleClick = async () => {
     const response = await axios.post('http://127.0.0.1:5000/query', {
-      department,
-      rating,
-      ratingCount,
-      wta
+      department: department,
+      rating: rating,
+      ratingCount: ratingCount,
+      wta: wta,
     });
     setResults(response.data)
     console.log(response.data);
