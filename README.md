@@ -31,8 +31,7 @@ npm install
 
 ![Screenshot](./static/schema-ss.png)
 
-Then run:
-
+Make sure the database variables are in a ```.env``` file and then run: 
 ```python3 db.py``` in the ```backend``` folder
 
 Your table should be populated now, and everything should work.
