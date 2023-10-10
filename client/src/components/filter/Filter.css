@@ -23,7 +23,7 @@
 
 .input {
     margin-top: -10px;
-    border: 2px solid rgb(99, 79, 5);
+    border: 2px solid rgb(157, 155, 148);
     border-radius: 5px;
     height: 30px;
     font-family: monospace;
@@ -54,7 +54,7 @@ body.dark-mode .input::placeholder {
     font-size: medium;
     height: 30px;
     width: 125px;
-    font-family: fantasy;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 600;
     flex-shrink: 2;
 }

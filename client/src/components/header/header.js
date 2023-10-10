@@ -5,13 +5,15 @@ import { useState, useEffect } from "react";
 function Header() {
   const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
-    document.body.classList.toggle('dark-mode', darkMode);
+    document.body.classList.toggle("dark-mode", darkMode);
   }, [darkMode]);
 
   return (
     <div className="header">
-      <h4>RateMyProfQuery</h4>
-        <button className="night-button" onClick={() => setDarkMode(!darkMode)}>{darkMode ? 'Light' : 'Dark'}</button>
+      <h4 className="title">RateMyProfQuery</h4>
+      <button className="night-button" onClick={() => setDarkMode(!darkMode)}>
+        {darkMode ? "Light" : "Dark"}
+      </button>
     </div>
   );
 }
