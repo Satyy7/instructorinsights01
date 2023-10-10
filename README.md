@@ -27,7 +27,7 @@ Install dependencies
 npm install
 ```
 
-4.) I scraped the professors off of rate my professor which is then transformed into `data_cleaned.csv`. You need to load this in order to have results when querying. So, once you create a database with a table named professors with this schema:
+4.) I scraped the professors off of rate my professor which is then transformed into `cleaned_data.csv`. You need to load this in order to have results when querying. So, once you create a database with a table named professors with this schema:
 
 ![Screenshot](./static/schema-ss.png)
 
