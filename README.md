@@ -1,4 +1,4 @@
-# Rate My Prof Query
+# Instructor Insights
 
 This is an application that allows you to query professors by different fields as they appear on https://www.ratemyprofessors.com/. 
 
