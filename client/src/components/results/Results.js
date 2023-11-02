@@ -5,17 +5,26 @@ function Results({ data }) {
     <>
       <div className="results-container"></div>
       <div className="results-header">Results</div>
-      <div className="results-body">
-        <div>
-          {data.map((prof, index) => (
-            <div className="prof" key={index}>
-              <div className="prof-name">
-                <h2>{prof.name}</h2>
-                </div>
-              <p className="rating">Rating: {prof.rating}</p>
-            </div>
-          ))}
-        </div>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((prof, index) => (
+              <tr
+                className={index % 2 === 0 ? "even-row" : "odd-row"}
+                key={index}
+              >
+                <td>{prof.name}</td>
+                <td>Rating: {prof.rating}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );
