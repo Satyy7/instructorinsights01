@@ -61,16 +61,16 @@ table {
   
   /* Additional styling, like header styling */
   thead {
-    background-color: #333;
+    background-color: rgb(67, 66, 66);
     color: #fff;
   }
 body.dark-mode thead {
-    background-color: darkgray;
+    background-color: rgb(67, 66, 66);
     color: black;
 }
 body.dark-mode .odd-row {
-    background-color: darkgray;
-    color: black;
+    background-color: rgb(67, 66, 66);
+    color: white;
 }
 body.dark-mode .even-row {
     background-color: rgb(0, 0, 0);
