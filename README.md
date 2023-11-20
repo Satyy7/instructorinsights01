@@ -5,6 +5,7 @@ While ratemyprofessor allows for querying by professor name, this application al
 
 Currently this works for Vanderbilt University, but will expand to include more schools in the future.
 
+## Demo
 [![Demo Video](./static/thumbnail_instructor.jpg)](https://youtu.be/WWDpLh38S3g)
 
 ## Installation
