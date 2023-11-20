@@ -1,10 +1,11 @@
 # Instructor Insights
-
 This is an application that allows you to query professors by different fields as they appear on https://www.ratemyprofessors.com/. 
 
 While ratemyprofessor allows for querying by professor name, this application allows you to filter the professors with more fields like would take again %, rating number, and rating count.
 
 Currently this works for Vanderbilt University, but will expand to include more schools in the future.
+
+[![Watch the Video](https://example.com/thumbnail.jpg)](https://youtu.be/WWDpLh38S3g)
 
 ## Installation
 
